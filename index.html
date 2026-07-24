@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Torno CNC XR — Simulador de Montagem/Explosão</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <canvas id="renderCanvas"></canvas>
+
+  <!-- ============================================= -->
+  <!-- TELA DE SPLASH -->
+  <!-- ============================================= -->
+  <div id="splash">
+    <div id="splash-card">
+      <div id="splash-stripe-left"></div>
+      <div id="splash-stripe-right"></div>
+
+      <div id="splash-brand">SENAI</div>
+      <div id="splash-school">CFP Antonio Adolphe Lobbe — São Carlos/SP</div>
+
+      <div id="splash-divider"></div>
+
+      <div id="splash-course">Técnico em Mecatrônica</div>
+      <div id="splash-project">Simulador RV/RA — Torno CNC</div>
+
+      <div id="splash-progress-wrap">
+        <div id="splash-progress-bar"></div>
+      </div>
+      <div id="splash-progress-label">Carregando modelo...</div>
+
+      <button id="btn-iniciar" disabled>Iniciar Simulação</button>
+    </div>
+  </div>
+
+  <div id="hud">
+    <div id="hud-title">TORNO CNC</div>
+
+    <div id="mode-buttons">
+      <button id="btn-livre" class="mode-btn active">Livre</button>
+      <button id="btn-explodido" class="mode-btn">Explodido</button>
+    </div>
+
+    <div id="explode-panel">
+      <label for="explode-slider">Fator de explosão</label>
+      <input type="range" id="explode-slider" min="0" max="100" value="0" />
+    </div>
+
+    <div id="xr-panel">
+      <label>Realidade estendida</label>
+      <div id="xr-buttons">
+        <button id="btn-vr" class="xr-btn">Modo RV</button>
+        <button id="btn-ar" class="xr-btn">Modo RA</button>
+      </div>
+      <div id="xr-status"></div>
+    </div>
+
+    <div id="doc-panel">
+      <label>Documentação</label>
+      <button id="btn-manual" class="doc-btn">📄 Manual do Operador</button>
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- PAINEL DO MANUAL (PDF sobreposto) -->
+  <!-- ============================================= -->
+  <div id="manual-overlay" class="hidden">
+    <div id="manual-panel">
+      <div id="manual-header">
+        <span>Manual do Operador — Torno CNC</span>
+        <button id="btn-fechar-manual" aria-label="Fechar">✕</button>
+      </div>
+      <div id="manual-body">
+        <iframe id="manual-iframe" title="Manual do Operador"></iframe>
+        <div id="manual-erro" class="hidden">
+          PDF não encontrado. Coloque o arquivo em
+          <code>public/manual/manual-operador.pdf</code> e recarregue a página.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
