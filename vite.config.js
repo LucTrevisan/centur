@@ -4,10 +4,10 @@ export default defineConfig({
   base: "/centur/",
   server: {
     host: true,
-    port: 5176
+    port: 5176,
   },
   build: {
     outDir: "dist",
-    assetsInlineLimit: 0
-  }
+    assetsInlineLimit: 0,
+  },
 });
